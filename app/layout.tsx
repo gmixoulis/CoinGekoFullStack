@@ -1,17 +1,19 @@
+import type { Metadata } from "next"
 import { Geist, Geist_Mono, Inter } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const interHeading = Inter({subsets:['latin'],variable:'--font-heading'});
+export const metadata: Metadata = {
+  title: "CryptoTracker — Real-Time Cryptocurrency Market Data",
+  description:
+    "Track top cryptocurrencies by market cap with real-time prices, 24h changes, market data, and detailed coin information. Powered by CoinGecko API.",
+}
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+const interHeading = Inter({ subsets: ["latin"], variable: "--font-heading" })
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
+const fontMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
 
 export default function RootLayout({
   children,
@@ -22,7 +24,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, interHeading.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        "font-sans",
+        geist.variable,
+        interHeading.variable,
+      )}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>

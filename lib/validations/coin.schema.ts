@@ -74,9 +74,9 @@ export const coinDetailSchema = z.object({
     price_change_percentage_1y: z.number().nullish().transform((v) => v ?? 0),
   }),
   links: z.object({
-    homepage: z.array(z.string()),
-    blockchain_site: z.array(z.string()),
-    subreddit_url: z.string().default(''),
+    homepage: z.array(z.string().nullable()).transform((arr) => arr.filter(Boolean) as string[]),
+    blockchain_site: z.array(z.string().nullable()).transform((arr) => arr.filter(Boolean) as string[]),
+    subreddit_url: z.string().nullable().optional().transform((v) => v ?? ''),
   }),
   categories: z.array(z.string()),
   last_updated: z.string(),

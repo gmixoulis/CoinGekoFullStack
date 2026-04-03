@@ -1,12 +1,9 @@
-# CryptoTracker - Cyberscope Full-Stack Assignment
 
-A lightweight, full-stack application built for the Cyberscope assignment that provides cryptocurrency price information using the CoinGecko API.
+
+A lightweight, full-stack application that provides cryptocurrency price information using the CoinGecko API.
 
 Built with **Next.js 16 (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **shadcn/ui**.
 
-## 🚀 Assignment Implementation Details
-
-This project is specifically designed to meet all the constraints and exact requirements of the Cyberscope Full-Stack Assignment.
 
 ### 1. Backend Proxy API
 **Requirement:** *The backend should work as a proxy of the CoinGecko API. When the frontend requests `/coins/markets` or `/coins/{id}`, the request should traverse the backend.*
@@ -16,7 +13,7 @@ This project is specifically designed to meet all the constraints and exact requ
 ### 2. Data Filtering & Zod Validation
 **Requirement:** *The backend should respond to the frontend with the required fields for the render only.*
 - **Implementation:** The backend utilizes **Zod runtime validation schemas** (`lib/validations/coin.schema.ts`). When the Next.js API receives the massive payload from CoinGecko, it passes the data through `coinListSchema.parse()` and `coinDetailSchema.parse()`. 
-- **Benefit:** This strictly strips out all unnecessary data, ensuring the React frontend receives a very lightweight, fully type-safe payload containing *only* the fields requested in the assignment format.
+- **Benefit:** This strictly strips out all unnecessary data, ensuring the React frontend receives a very lightweight
 
 ### 3. API Parameters & Currency
 **Requirement:** *Use proper parameters to not request unnecessary information. Currency fixed in USD.*
@@ -52,9 +49,9 @@ Frontend (React)  →  Next.js API Routes (Backend Proxy)  →  CoinGecko API
 
 | Component | Choice | Why |
 |-----------|---|---|
-| **Backend** | Next.js API Routes | Node environment perfectly coupled with React. Matches assignment stack preference. |
+| **Backend** | Next.js API Routes | Node environment perfectly coupled with React. |
 | **Frontend** | React (Next.js) | Component-based, responsive UI. |
-| **Styling** | Tailwind CSS + shadcn/ui | Meets assignment preferences for rapid and accessible design. |
+| **Styling** | Tailwind CSS + shadcn/ui |  rapid and accessible design. |
 | **Validation** | Zod | Runtime type safety ensures CoinGecko's external data conforms strictly to expectations. |
 | **HTTP Client**| Native Fetch | Used over Axios to avoid dependency bloat and leverage Next.js native caching. |
 
